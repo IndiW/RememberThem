@@ -16,27 +16,51 @@ var sister = "We would read together because Amma told us to. You may have stopp
 
 var prompts = [grandchild1, grandchild2, neice1, neice2, neice3, nephew1, nephew2, sister, brother];
 
-var family = ["grandchild", "grandchild", "neice", "neice", "neice", "nephew", "nephew", "sister", "brother"]
-var wrong = ["cousin", "nephew", "sister", "cousin", "daughter", "son", "brother", "aunt", "grandfather"]
+var family = ["grandchild", "grandchild", "neice", "neice", "neice", "nephew", "nephew", "sister", "brother"];
+var wrong = ["cousin", "nephew", "sister", "cousin", "daughter", "son", "brother", "aunt", "grandfather"];
+var names = ["Yoshi", "Boo", "Rosalina", "Peach", "Daisy", "Mario", "Bill", "Zelda", "Diddy"];
+var butts = ["button_choice1", "button_choice2"];
+var answer = 0;
 
-var butts = ["button_choice1", "button_choice2"]
 
+function check(x) {
+    if (x == answer) {
+        var correct = true;
+    }
+    var element = document.getElementById("output");
+    if (correct) {
+
+        var s = "That's right! I'm your ".concat(family[counter])
+        s = s.concat(", ")
+        element.innerHTML = s.concat(names[counter]);
+    }
+    else {
+        var s = "Actually, I'm your ".concat(family[counter])
+        s = s.concat(", ")
+        element.innerHTML = s.concat(names[counter]);
+    }
+
+    checkAns()
+    element.innerHTML = "Who am I?";
+}
 
 function checkAns() {
+
     document.getElementById("fam_image").src = images[counter]
     var element = document.getElementById("story");
     element.innerHTML = prompts[counter];
 
-
-    var n = Math.round(Math.random())
-    console.log(n)
+    var n = Math.round(Math.random());
+    console.log(n);
     if (n == 1) {
-        var b1 = butts[0]
-        var b2 = butts[1]
+        var b1 = butts[0];
+        var b2 = butts[1];
+        answer = 0;
     }
     else {
-        var b1 = butts[1]
-        var b2 = butts[0]
+        var b1 = butts[1];
+        var b2 = butts[0];
+        answer = 1;
     }
 
     var btn_element1 = document.getElementById(b1);
