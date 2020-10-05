@@ -32,7 +32,7 @@ function start() {
     document.getElementById("intro_line").classList.add('d-none');
 
     var element = document.getElementById("output");
-    element.innerHTML = "Who am I?";
+    element.innerHTML = "Who am I? (Click an answer below)";
 
     document.getElementById("continue_div").classList.add('d-none');
 
