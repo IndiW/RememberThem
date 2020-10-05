@@ -1,11 +1,43 @@
+body{
+    min-height: 100%;
+    height: 100%;
+}
+
+
 #intro{
     justify-content: center;
 }
 
 #fam_image{
-    width: 70%;
+    max-width: 100%;
+    min-height: 100%;
+    height: 100%;
 }
 
-#button_choice, #button_choice1, #button_choice2{
-    font-size: 2em;
+
+#greeting{
+    font-size: 6em;
+    font-weight: bold;
+}
+
+#remember, #intro_line{
+    font-size: 5em;
+}
+
+#story{
+    font-size: 3em;
+}
+
+#output{
+    font-size: 4em;
+    font-weight: bold;
+}
+
+#button_choice, #button_choice1, #button_choice2, #button_choice3{
+    font-size: 3em;
+    margin: 10px;
+}
+
+#intro_button{
+    font-size: 4em;
 }

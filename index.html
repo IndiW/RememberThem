@@ -26,8 +26,9 @@
         <div class="row">
             <div class="col">
                 <div class="text-center">
-                    <h1>Hi Edith!</h1>
-                    <h2>Do you remember me?</h2>
+                    <h1 id="greeting">Hi Edith!</h1>
+                    <h2 class="d-none" id="remember">Do you remember me?</h2>
+                    <h2 id="intro_line">Let's practice remembering your family!</h2>
                 </div>
             </div>
 
@@ -35,30 +36,37 @@
         <div class="row">
             <div class="col">
                 <div class="text-center">
-                    <img src="./photos/brother.jpg" class="img-fluid" alt="Responsive image" id="fam_image">
-                    <h3 id="story">When we were little, we rode our bikes to school everyday. Yours was blue and mine
-                        was orange with a flag.</h3>
-                    <h2 id="output">Who am I?</h2>
+                    <button class="btn btn-primary btn-lg" id="intro_button" onclick="start()">Click Here to
+                        Begin!</button>
+                    <img class="d-none" src="" class="img-fluid" alt="Responsive image" id="fam_image">
+                    <h3 id="story"></h3>
+                    <h2 id="output"></h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row d-none" id="choice_div">
+            <div class="col-sm">
                 <div class="text-center">
-                    <button class="btn btn-primary btn-lg" id="button_choice1" onclick="check(0)">You're my
-                        brother</button>
+                    <button class="btn btn-primary btn-lg" id="button_choice1" onclick="check(0)"></button>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <div class="text-center">
-                    <button class="btn btn-primary btn-lg" id="button_choice2" onclick="check(1)">You're my
-                        dad</button>
+                    <button class="btn btn-primary btn-lg" id="button_choice2" onclick="check(1)"></button>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm">
                 <div class="text-center">
-                    <button class="btn btn-primary btn-lg" id="button_choice" onclick="checkAns()">I don't know
+                    <button class="btn btn-primary btn-lg" id="button_choice" onclick="check(2)">I don't know
                         you.</button>
+                </div>
+            </div>
+        </div>
+        <div class="row d-none" id="continue_div">
+            <div class="col">
+                <div class="text-center">
+                    <button class="btn btn-primary btn-lg" id="button_choice3"
+                        onclick="check_between()">Continue</button>
                 </div>
             </div>
         </div>

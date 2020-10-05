@@ -2,7 +2,7 @@ var counter = 0;
 var images = ["./photos/grandchild1.jpg", "./photos/grandchild2.jpg",
     "./photos/neice1.jpg", "./photos/neice2.jpg",
     "./photos/neice3.jpg", "./photos/nephew1.jpg", "./photos/nephew2.jpg",
-    "./photos/sister.jpg", "./photos/brother.jpg"];
+    "./photos/sister.jpg", "./photos/brother.jpg",];
 
 var brother = "When we were little, we rode our bikes to school everyday. Yours was blue and mine was orange with a flag.";
 var grandchild1 = "When you first carried me, I threw up on your new jacket. Then we both laughed together!";
@@ -21,11 +21,61 @@ var wrong = ["cousin", "nephew", "sister", "cousin", "daughter", "son", "brother
 var names = ["Yoshi", "Boo", "Rosalina", "Peach", "Daisy", "Mario", "Bill", "Zelda", "Diddy"];
 var butts = ["button_choice1", "button_choice2"];
 var answer = 0;
+var f_start = true;
 
+
+function start() {
+    document.getElementById("remember").classList.remove('d-none');
+    document.getElementById("fam_image").classList.remove('d-none');
+    document.getElementById("choice_div").classList.remove('d-none');
+    document.getElementById("intro_button").classList.add('d-none');
+    document.getElementById("intro_line").classList.add('d-none');
+
+    var element = document.getElementById("output");
+    element.innerHTML = "Who am I?";
+
+    document.getElementById("continue_div").classList.add('d-none');
+
+    document.getElementById("choice_div").classList.remove('d-none');
+
+    document.getElementById("fam_image").src = images[counter]
+    var element = document.getElementById("story");
+    element.innerHTML = prompts[counter];
+
+    var n = Math.round(Math.random());
+    console.log(n);
+    if (n == 1) {
+        var b1 = butts[0];
+        var b2 = butts[1];
+        answer = 0;
+    }
+    else {
+        var b1 = butts[1];
+        var b2 = butts[0];
+        answer = 1;
+    }
+
+    var btn_element1 = document.getElementById(b1);
+    var btn_element2 = document.getElementById(b2);
+
+    btn_element1.innerHTML = "You're my ".concat(family[counter]);
+    btn_element2.innerHTML = "You're my ".concat(wrong[counter]);
+
+
+}
 
 function check(x) {
-    if (x == answer) {
+    if (x == 2) {
+        var correct = false;
+    }
+    else if (x == answer) {
         var correct = true;
+    }
+    if (!f_start) {
+        if (counter == 0) {
+            counter = 9;
+        }
+        counter--;
     }
     var element = document.getElementById("output");
     if (correct) {
@@ -40,9 +90,33 @@ function check(x) {
         element.innerHTML = s.concat(names[counter]);
     }
 
-    checkAns()
-    element.innerHTML = "Who am I?";
+    document.getElementById("choice_div").classList.add('d-none');
+
+    document.getElementById("continue_div").classList.remove('d-none');
+    if (!f_start) {
+        if (counter == 8) {
+            counter = 0;
+        }
+        counter++;
+    }
+    f_start = false;
+
+
 }
+
+
+function check_between() {
+
+    var element = document.getElementById("output");
+    element.innerHTML = "Who am I?";
+
+    document.getElementById("continue_div").classList.add('d-none');
+
+    document.getElementById("choice_div").classList.remove('d-none');
+
+    checkAns()
+}
+
 
 function checkAns() {
 
